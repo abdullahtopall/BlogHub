@@ -21,16 +21,13 @@ Projeyi yerel makinenizde çalıştırmak için:
    git clone https://github.com/abdullahtopall/BlogHub.git
 Gerekli bağımlılıkları yükleyin:
 
-Copy
-cd BlogHub
+ BlogHub
 npm install  # veya yarn install
 Sunucuyu başlatın:
 
-bash
-Copy
 npm start    # veya yarn start
 📂 Proje Yapısı
-Copy
+
 BlogHub/
 ├── src/
 │   ├── components/   # React bileşenleri
@@ -46,13 +43,9 @@ Forklayın (🔱) ve depoyu klonlayın.
 
 Yeni bir branch oluşturun:
 
-bash
-Copy
 git checkout -b yeni-ozellik
 Değişikliklerinizi commit edin:
 
-bash
-Copy
 git commit -m "Yeni özellik eklendi: ..."
 Push yapın ve Pull Request açın!
 
