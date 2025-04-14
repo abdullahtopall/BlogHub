@@ -18,11 +18,9 @@ Projeyi yerel makinenizde çalıştırmak için:
 1. Depoyu klonlayın:
    ```bash
    git clone https://github.com/abdullahtopall/BlogHub.git
-   ```bash
    git clone https://github.com/abdullahtopall/BlogHub.git
 Gerekli bağımlılıkları yükleyin:
 
-bash
 Copy
 cd BlogHub
 npm install  # veya yarn install
@@ -64,7 +62,6 @@ Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için LICENSE dosyasını
 💡 Sorun veya öneriniz mi var?
 Issue açarak bize bildirin!
 
-Copy
 
 ### Özelleştirme İpuçları:
 - **Teknoloji Stack'i** eklemek isterseniz (React, Node.js vb.), `## 🛠️ Teknolojiler` başlığı altında listeleyebilirsiniz.
