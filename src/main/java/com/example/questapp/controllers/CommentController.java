@@ -3,9 +3,11 @@ package com.example.questapp.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.questapp.entities.Comment;
 import com.example.questapp.requests.CommentCreateRequest;
+import com.example.questapp.requests.CommentUpdateRequest;
 import com.example.questapp.services.CommentService;
 
 @RestController
@@ -39,8 +42,14 @@ public class CommentController {
 		return commentService.createOneComment(request);
 	}
 	
+	@PutMapping("/{commentId}")
+	public Comment updateOneComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest updateComment) {
+		return commentService.updateOneCommentById(commentId, updateComment);
+	}
 	
-	
-	
+	@DeleteMapping("/{commentId}")
+	public void deleteOneComment(@PathVariable Long commentId) {
+		commentService.deleteOneCommentById(commentId);
+	}
 	
 }

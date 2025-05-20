@@ -10,6 +10,7 @@ import com.example.questapp.entities.Post;
 import com.example.questapp.entities.User;
 import com.example.questapp.repos.CommentRepository;
 import com.example.questapp.requests.CommentCreateRequest;
+import com.example.questapp.requests.CommentUpdateRequest;
 
 @Service
 public class CommentService {
@@ -20,6 +21,8 @@ public class CommentService {
 
 	public CommentService(CommentRepository commentRepository, UserService userService, PostService postService) {
 		this.commentRepository = commentRepository;
+		this.userService = userService;
+		this.postService = postService;
 	}
 
 	public List<Comment> getAllCommentsWithParam(Optional<Long> userId, Optional<Long> postId) {
@@ -52,6 +55,18 @@ public class CommentService {
 			return null;
 	}
 	
+	public Comment updateOneCommentById(Long commentId, CommentUpdateRequest updateComment) {
+		Optional<Comment> comment = commentRepository.findById(commentId);
+		if(comment.isPresent()) {
+			Comment commentToUpdate = comment.get();
+			commentToUpdate.setText(updateComment.getText());
+			return commentRepository.save(commentToUpdate);
+		} else
+			return null;
+	}
 	
+	public void deleteOneCommentById(Long commentId) {
+		commentRepository.deleteById(commentId);
+	}
 	
 }

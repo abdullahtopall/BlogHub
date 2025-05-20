@@ -30,13 +30,13 @@ public class LikeController {
 		return likeService.getAll();
 	}
 	
-	@GetMapping("/{postId}")
-	public List<Like> getLikesByPostId(@RequestParam Long postId) {
+	@GetMapping("/post/{postId}")
+	public List<Like> getLikesByPostId(@PathVariable Long postId) {
 		return likeService.findByPostId(postId);
 	}
 	
-	@GetMapping("/{userId}")
-	public List<Like> getLikesByUserId(@RequestParam Long userId) {
+	@GetMapping("/user/{userId}")
+	public List<Like> getLikesByUserId(@PathVariable Long userId) {
 		return likeService.findByUserId(userId);
 	}
 	
@@ -50,7 +50,7 @@ public class LikeController {
 		return likeService.save(like);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{likeId}")
 	public void deleteLike(@PathVariable Long likeId) {
 		likeService.deleteById(likeId);
 	}
