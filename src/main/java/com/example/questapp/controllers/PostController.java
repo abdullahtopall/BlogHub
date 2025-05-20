@@ -33,6 +33,11 @@ public class PostController {
 		return postService.getAllPosts(userId);
 	}
 	
+	@GetMapping("/category/{category}")
+    public List<Post> getPostsByCategory(@PathVariable String category) {
+        return postService.getPostsByCategory(category);
+    }
+	
 	@PostMapping
 	public Post createOnePost(@RequestBody PostCreateRequest newPostRequest) {
 		return postService.createOnePost(newPostRequest);

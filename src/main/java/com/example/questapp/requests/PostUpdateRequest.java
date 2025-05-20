@@ -7,5 +7,6 @@ public class PostUpdateRequest {
 	
 	String title;
 	String text;
+	String category;
 	
 }

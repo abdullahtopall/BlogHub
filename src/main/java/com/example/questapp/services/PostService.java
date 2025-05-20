@@ -2,6 +2,7 @@ package com.example.questapp.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,13 @@ public class PostService {
 		}
 		return postRepository.findAll();
 	}
+	
+	public List<Post> getPostsByCategory(String category) {
+        List<Post> allPosts = postRepository.findAll();
+        return allPosts.stream()
+                .filter(post -> category.equals(post.getCategory()))
+                .collect(Collectors.toList());
+    }
 
 	public Post getOnePostById(Long postId) {
 		return postRepository.findById(postId).orElse(null);
@@ -42,6 +50,7 @@ public class PostService {
 		toSave.setId(newPostRequest.getId());
 		toSave.setText(newPostRequest.getText());
 		toSave.setTitle(newPostRequest.getTitle());
+		toSave.setCategory(newPostRequest.getCategory());
 		toSave.setUser(user);
 		
 		return postRepository.save(toSave);
@@ -53,6 +62,7 @@ public class PostService {
 			Post toUpdate = post.get();
 			toUpdate.setText(updatePost.getText());
 			toUpdate.setTitle(updatePost.getTitle());
+			toUpdate.setCategory(updatePost.getCategory());
 			postRepository.save(toUpdate);
 			
 			return toUpdate;

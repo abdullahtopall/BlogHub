@@ -34,4 +34,6 @@ public class Post {
 	@Column(columnDefinition = "text")
 	String text;
 	
+	String category;
+	
 }

@@ -9,4 +9,5 @@ public class PostCreateRequest {
 	String text;
 	String title;
 	Long userId;
+	String category;
 }
